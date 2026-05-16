@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <UContainer class="sm:border-x border-default pt-10">
+    <UContainer class="px-4 sm:px-8 lg:px-12 pt-10">
       <AppHeader :links="navLinks" />
       <slot />
       <AppFooter />

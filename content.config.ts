@@ -41,9 +41,8 @@ export default defineContentConfig({
       source: 'index.yml',
       schema: z.object({
         hero: z.object({
-          links: z.array(createButtonSchema()),
-          images: z.array(createImageSchema())
-        }),
+          links: z.array(createButtonSchema()).optional()
+        }).optional(),
         about: createBaseSchema(),
         experience: createBaseSchema().extend({
           items: z.array(z.object({
@@ -56,7 +55,7 @@ export default defineContentConfig({
               color: z.string()
             })
           }))
-        }),
+        }).optional(),
         testimonials: z.array(createTestimonialSchema()),
         blog: createBaseSchema(),
         faq: createBaseSchema().extend({
@@ -120,11 +119,12 @@ export default defineContentConfig({
       })
     }),
     about: defineCollection({
-      type: 'page',
+      type: 'data',
       source: 'about.yml',
       schema: z.object({
-        content: z.object({}),
-        images: z.array(createImageSchema())
+        title: z.string(),
+        description: z.string(),
+        content: z.string()
       })
     })
   }
